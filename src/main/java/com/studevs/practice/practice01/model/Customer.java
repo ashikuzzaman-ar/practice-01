@@ -4,21 +4,26 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Getter
 @Setter
-@ToString
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "customer")
-public class Customer implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id;
+public class Customer extends EntityCommon implements Serializable {
 
     private String name;
+    private Double age;
 
-    private Integer age;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Address presentAddress;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Address permanentAddress;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    private List<Contact> contacts;
 }
