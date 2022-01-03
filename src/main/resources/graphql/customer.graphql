@@ -6,4 +6,26 @@ type Customer {
     id: ID
     name: String
     age: Float
+    presentAddress: Address
+    permanentAddress: Address
+    contacts: [Contact]
+}
+
+type Address {
+    id: ID
+    houseNumber: String
+    roadNumber: String
+    policeStation: String
+    city: String
+    state: String
+    zipCode: String
+    customer: Customer
+}
+
+type Contact {
+    phoneNumber: String
+    email: String
+    fax: String
+    facebookProfile: String
+    customer: Customer
 }

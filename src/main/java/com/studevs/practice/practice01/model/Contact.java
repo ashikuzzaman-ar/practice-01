@@ -20,7 +20,7 @@ public class Contact extends EntityCommon implements Serializable {
     private String fax;
     private String facebookProfile;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
     @JsonIgnore
     private Customer customer;
