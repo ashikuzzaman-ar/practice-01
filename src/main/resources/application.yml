@@ -1,0 +1,23 @@
+## System Configuration
+server:
+  port: 8888
+logging:
+  level:
+    com:
+      studevs:
+        practice:
+          practice01: DEBUG
+# DB Config
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
