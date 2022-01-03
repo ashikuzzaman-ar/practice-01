@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1641241473223-1" author="ashikuzaman">
+        <createTable tableName="address">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_address"/>
+            </column>
+            <column name="version" type="BIGINT"/>
+            <column name="created_by" type="VARCHAR(255)"/>
+            <column name="create_time" type="DATETIME"/>
+            <column name="updated_by" type="VARCHAR(255)"/>
+            <column name="update_time" type="DATETIME"/>
+            <column name="house_number" type="VARCHAR(255)"/>
+            <column name="road_number" type="VARCHAR(255)"/>
+            <column name="police_station" type="VARCHAR(255)"/>
+            <column name="city" type="VARCHAR(255)"/>
+            <column name="state" type="VARCHAR(255)"/>
+            <column name="zip_code" type="VARCHAR(255)"/>
+            <column name="customer_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1641241473223-2" author="ashikuzaman">
+        <createTable tableName="contact">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_contact"/>
+            </column>
+            <column name="version" type="BIGINT"/>
+            <column name="created_by" type="VARCHAR(255)"/>
+            <column name="create_time" type="DATETIME"/>
+            <column name="updated_by" type="VARCHAR(255)"/>
+            <column name="update_time" type="DATETIME"/>
+            <column name="phone_number" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="fax" type="VARCHAR(255)"/>
+            <column name="facebook_profile" type="VARCHAR(255)"/>
+            <column name="customer_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1641241473223-3" author="ashikuzaman">
+        <createTable tableName="customer">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_customer"/>
+            </column>
+            <column name="version" type="BIGINT"/>
+            <column name="created_by" type="VARCHAR(255)"/>
+            <column name="create_time" type="DATETIME"/>
+            <column name="updated_by" type="VARCHAR(255)"/>
+            <column name="update_time" type="DATETIME"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="age" type="DOUBLE"/>
+            <column name="present_address_id" type="BIGINT"/>
+            <column name="permanent_address_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1641241473223-4" author="ashikuzaman">
+        <addForeignKeyConstraint baseColumnNames="customer_id" baseTableName="address"
+                                 constraintName="FK_ADDRESS_ON_CUSTOMER" referencedColumnNames="id"
+                                 referencedTableName="customer"/>
+    </changeSet>
+    <changeSet id="1641241473223-5" author="ashikuzaman">
+        <addForeignKeyConstraint baseColumnNames="customer_id" baseTableName="contact"
+                                 constraintName="FK_CONTACT_ON_CUSTOMER" referencedColumnNames="id"
+                                 referencedTableName="customer"/>
+    </changeSet>
+    <changeSet id="1641241473223-6" author="ashikuzaman">
+        <addForeignKeyConstraint baseColumnNames="permanent_address_id" baseTableName="customer"
+                                 constraintName="FK_CUSTOMER_ON_PERMANENTADDRESS" referencedColumnNames="id"
+                                 referencedTableName="address"/>
+    </changeSet>
+    <changeSet id="1641241473223-7" author="ashikuzaman">
+        <addForeignKeyConstraint baseColumnNames="present_address_id" baseTableName="customer"
+                                 constraintName="FK_CUSTOMER_ON_PRESENTADDRESS" referencedColumnNames="id"
+                                 referencedTableName="address"/>
+    </changeSet>
+
+</databaseChangeLog>

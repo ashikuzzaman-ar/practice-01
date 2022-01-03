@@ -1,4 +1,4 @@
-## System Configuration
+# System Configuration
 server:
   port: 8888
 logging:
@@ -7,8 +7,11 @@ logging:
       studevs:
         practice:
           practice01: DEBUG
-# DB Config
+
+# Database Configuration
 spring:
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
@@ -16,7 +19,7 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none
     properties:
       hibernate:
         format_sql: true
