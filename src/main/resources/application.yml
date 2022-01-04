@@ -1,6 +1,8 @@
 # System Configuration
 server:
   port: 8888
+  servlet:
+    context-path: /practice-01/api
 logging:
   level:
     com:
