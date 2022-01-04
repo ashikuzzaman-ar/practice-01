@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import java.io.Serializable;
 
 @Getter
 @Setter
@@ -16,7 +15,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Entity
 @Table(name = "address")
-public class Address extends EntityCommon implements Serializable {
+public class Address extends EntityCommon {
 
     private String houseNumber;
     private String roadNumber;

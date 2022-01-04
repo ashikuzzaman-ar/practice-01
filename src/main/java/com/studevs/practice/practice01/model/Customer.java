@@ -3,7 +3,6 @@ package com.studevs.practice.practice01.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 @Getter
@@ -13,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "customer")
-public class Customer extends EntityCommon implements Serializable {
+public class Customer extends EntityCommon {
 
     private String name;
     private Double age;

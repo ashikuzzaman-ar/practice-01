@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Getter
 @Setter
@@ -13,7 +12,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Entity
 @Table(name = "contact")
-public class Contact extends EntityCommon implements Serializable {
+public class Contact extends EntityCommon {
 
     private String phoneNumber;
     private String email;
