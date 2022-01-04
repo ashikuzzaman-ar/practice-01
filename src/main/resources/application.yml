@@ -26,3 +26,9 @@ spring:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
+
+# Custom Configuration
+custom:
+  db:
+    initialize:
+      test-data: true
