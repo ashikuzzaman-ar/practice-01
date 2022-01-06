@@ -7,6 +7,6 @@ import java.util.Optional;
 
 @Repository
 public interface SystemPropertyRepository extends RepositoryCommon<SystemProperty> {
-
-    public Optional<SystemProperty> findByKey(String key);
+	
+	Optional<SystemProperty> findByKey(String key);
 }

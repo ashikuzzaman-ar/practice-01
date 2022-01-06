@@ -31,6 +31,11 @@
     </changeSet>
     <changeSet id="1641313941421-4" author="ashikuzaman">
         <insert tableName="system_property">
+            <column name="created_by">system</column>
+            <column name="create_time">${now}</column>
+            <column name="updated_by">system</column>
+            <column name="update_time">${now}</column>
+            <column name="version">0</column>
             <column name="key">db.version</column>
             <column name="value">0</column>
         </insert>

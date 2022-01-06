@@ -15,10 +15,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "system_property", indexes = {@Index(name = "idx_system_property_key", columnList = "key", unique = true)})
 public class SystemProperty extends EntityCommon {
-
-    @Column(unique = true, nullable = false)
-    private String key;
-    private String value;
-
-    public static final transient String DB_VERSION = "db.version";
+	
+	public static final transient String DB_VERSION = "db.version";
+	@Column(unique = true, nullable = false)
+	private String key;
+	private String value;
 }

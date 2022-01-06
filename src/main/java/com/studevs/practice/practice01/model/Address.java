@@ -16,15 +16,15 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "address")
 public class Address extends EntityCommon {
-
-    private String houseNumber;
-    private String roadNumber;
-    private String policeStation;
-    private String city;
-    private String state;
-    private String zipCode;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JsonIgnore
-    private Customer customer;
+	
+	private String houseNumber;
+	private String roadNumber;
+	private String policeStation;
+	private String city;
+	private String state;
+	private String zipCode;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JsonIgnore
+	private Customer customer;
 }

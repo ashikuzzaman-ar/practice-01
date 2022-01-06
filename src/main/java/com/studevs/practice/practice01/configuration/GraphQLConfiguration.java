@@ -11,16 +11,16 @@ import java.io.Serializable;
 @Slf4j
 @Configuration
 public class GraphQLConfiguration implements Serializable {
-
-    @Bean
-    public SchemaParser getSchemaParser() {
-        log.debug("Configuring SchemaParser");
-        return new SchemaParser();
-    }
-
-    @Bean
-    public SchemaGenerator getSchemaGenerator() {
-        log.debug("Configuring SchemaGenerator");
-        return new SchemaGenerator();
-    }
+	
+	@Bean
+	public SchemaParser getSchemaParser() {
+		log.debug("Configuring SchemaParser");
+		return new SchemaParser();
+	}
+	
+	@Bean
+	public SchemaGenerator getSchemaGenerator() {
+		log.debug("Configuring SchemaGenerator");
+		return new SchemaGenerator();
+	}
 }

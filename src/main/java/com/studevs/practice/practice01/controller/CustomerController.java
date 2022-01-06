@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/customer")
 public class CustomerController {
-
-    private final CustomerService customerService;
-
-    @PostMapping(value = "/get-all")
-    public ResponseEntity<ExecutionResult> getCustomers(@RequestBody String query) {
-        log.info("Calling: com.studevs.practice.practice01.controller.CustomerController.getCustomers");
-        return ResponseEntity.ok(this.customerService.execute(query));
-    }
+	
+	private final CustomerService customerService;
+	
+	@PostMapping(value = "/get-all")
+	public ResponseEntity<ExecutionResult> getCustomers(@RequestBody String query) {
+		log.info("Calling: com.studevs.practice.practice01.controller.CustomerController.getCustomers");
+		return ResponseEntity.ok(this.customerService.execute(query));
+	}
 }

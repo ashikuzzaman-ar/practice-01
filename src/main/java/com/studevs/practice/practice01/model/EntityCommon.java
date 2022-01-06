@@ -15,21 +15,21 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode
 @MappedSuperclass
 public class EntityCommon implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Version
-    private Long version;
-
-    private String createdBy;
-
-    @CreationTimestamp
-    private LocalDateTime createTime;
-
-    private String updatedBy;
-
-    @UpdateTimestamp
-    private LocalDateTime updateTime;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Version
+	private Long version;
+	
+	private String createdBy;
+	
+	@CreationTimestamp
+	private LocalDateTime createTime;
+	
+	private String updatedBy;
+	
+	@UpdateTimestamp
+	private LocalDateTime updateTime;
 }

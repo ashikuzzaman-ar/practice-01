@@ -10,8 +10,11 @@ logging:
         practice:
           practice01: DEBUG
 
-# Database Configuration
+# Spring Configuration
 spring:
+  main:
+    lazy-initialization: true
+  # Database Configuration
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.xml
   datasource:
@@ -32,3 +35,4 @@ custom:
   db:
     initialize:
       test-data: true
+      dummy-data: true
