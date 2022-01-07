@@ -36,6 +36,10 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-envers</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
 		</dependency>
@@ -86,11 +90,8 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<!--start with basic information to get Liquibase plugin:
-				include <groupId>, <artifactID>, and <version> elements-->
 				<groupId>org.liquibase</groupId>
 				<artifactId>liquibase-maven-plugin</artifactId>
-				<version>4.2.0</version>
 				<configuration>
 					<changeLogFile>classpath:db/changelog/db.changelog-master.xml</changeLogFile>
 					<url>jdbc:postgresql://localhost:5432/postgres</url>
@@ -98,11 +99,10 @@
 					<password>postgres</password>
 				</configuration>
 				<dependencies>
-					<!--set up any dependencies for Liquibase to function in your environment for example, a database-specific plugin-->
 					<dependency>
 						<groupId>org.postgresql</groupId>
 						<artifactId>postgresql</artifactId>
-						<version>42.3.1</version>
+						<version>${postgresql.version}</version>
 					</dependency>
 				</dependencies>
 			</plugin>
