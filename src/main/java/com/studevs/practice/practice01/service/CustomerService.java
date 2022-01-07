@@ -4,6 +4,7 @@ import com.studevs.practice.practice01.model.Address;
 import com.studevs.practice.practice01.model.Contact;
 import com.studevs.practice.practice01.model.Customer;
 import com.studevs.practice.practice01.repository.CustomerRepository;
+import graphql.schema.DataFetchingEnvironment;
 import graphql.schema.idl.RuntimeWiring;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -27,7 +28,17 @@ public class CustomerService extends GraphQLServiceCommon {
 	
 	protected RuntimeWiring buildRuntimeWiring() {
 		log.debug("Calling: com.studevs.practice.practice01.service.CustomerService.buildRuntimeWiring");
-		return RuntimeWiring.newRuntimeWiring().type("Query", typeWiring -> typeWiring.dataFetcher("customers", dataFetchingEnvironment -> this.customerRepository.findAll())).build();
+		return RuntimeWiring.newRuntimeWiring()
+		  .type("Query", typeWiring -> typeWiring.dataFetcher("customers", dataFetchingEnvironment -> this.customerRepository.findAll()))
+		  .type("Mutation", typeWiring -> typeWiring.dataFetcher("addCustomer", this::saveCustomer))
+		  .build();
+	}
+	
+	public Customer saveCustomer(DataFetchingEnvironment dataFetchingEnvironment) {
+		Customer customer = Customer.builder()
+		  .name(dataFetchingEnvironment.getArgumentOrDefault("name", ""))
+		  .build();
+		return this.customerRepository.save(customer);
 	}
 	
 	
